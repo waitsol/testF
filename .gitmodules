@@ -1,0 +1,3 @@
+[submodule "qq/xx"]
+	path = qq/xx
+	url = git@github.com:waitsol/testxx.git
