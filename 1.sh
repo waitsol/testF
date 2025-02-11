@@ -28,6 +28,7 @@ echo "GIT_RES_COMMIT=${GIT_RES_COMMIT}"
 
 cd $GIT_SERVER_SRC
 git add qq/xx/
+git add -u .
 git update-index --cacheinfo "160000,${GIT_RES_COMMIT},qq/xx"
 git status --short | grep -v "??"
 git submodule status
