@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set +e
 GIT_BRANCH=main
-GIT_SERVER_RES=qq/xx/
+GIT_SERVER_RES=../testxx
 p4rev=$(cat $LOG_PATH/.p4rev)
 
 # 获取当前路径（工作目录）
@@ -27,12 +27,12 @@ GIT_RES_COMMIT=$(git rev-parse HEAD)
 echo "GIT_RES_COMMIT=${GIT_RES_COMMIT}"
 
 cd $GIT_SERVER_SRC
-
+git add 1.sh 2.sh
 git update-index --cacheinfo "160000,${GIT_RES_COMMIT},qq/xx"
 git status --short | grep -v "??"
 git submodule status
 git commit -m "$COMMIT_LOG"
-git reset --hard HEAD
+
 git pull origin $GIT_BRANCH --rebase
 git push -f origin HEAD:${GIT_BRANCH}
 

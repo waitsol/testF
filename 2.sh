@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set +e
 GIT_BRANCH=main
-GIT_SERVER_RES=qq/xx/
+GIT_SERVER_RES=../testxx
 p4rev=$(cat $LOG_PATH/.p4rev)
 
 # 获取当前路径（工作目录）
