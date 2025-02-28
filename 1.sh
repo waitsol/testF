@@ -27,6 +27,8 @@ GIT_RES_COMMIT=$(git rev-parse HEAD)
 echo "GIT_RES_COMMIT=${GIT_RES_COMMIT}"
 
 cd $GIT_SERVER_SRC
+git pull origin $GIT_BRANCH --rebase
+
 git add 1.sh 2.sh
 
 git update-index --cacheinfo "160000,${GIT_RES_COMMIT},qq/xx"
@@ -34,6 +36,5 @@ git status --short | grep -v "??"
 git submodule status
 git commit -m "$COMMIT_LOG"
 
-git pull origin $GIT_BRANCH --rebase
 git push -f origin HEAD:${GIT_BRANCH}
 
